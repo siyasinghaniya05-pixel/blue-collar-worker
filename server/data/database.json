@@ -1,0 +1,1582 @@
+{
+  "users": [
+    {
+      "id": "usr-customer-1",
+      "name": "Priya Malhotra",
+      "email": "customer@skillserve.com",
+      "role": "customer",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
+      "city": "Mumbai",
+      "phone": "+91 98201 45892",
+      "address": "A-402, Sea Crest Towers, Bandra West, Mumbai 400050",
+      "createdAt": "2025-01-15"
+    },
+    {
+      "id": "usr-worker-1",
+      "name": "Rahul Sharma",
+      "email": "worker@skillserve.com",
+      "role": "worker",
+      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
+      "city": "Mumbai",
+      "phone": "+91 98112 34567",
+      "address": "14/B, Shiv Krupa Chs, Andheri East, Mumbai 400069",
+      "createdAt": "2024-03-10"
+    },
+    {
+      "id": "usr-admin-1",
+      "name": "Vikram Adani",
+      "email": "admin@skillserve.com",
+      "role": "admin",
+      "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80",
+      "city": "Bengaluru",
+      "phone": "+91 98800 12345",
+      "address": "SkillServe HQ, Indiranagar 100ft Rd, Bengaluru 560038",
+      "createdAt": "2023-11-01"
+    }
+  ],
+  "workers": [
+    {
+      "id": "w-1",
+      "userId": "usr-worker-1",
+      "name": "Rahul Sharma",
+      "specialty": "Master Electrician",
+      "category": "Electricians",
+      "level": 4,
+      "tierName": "Master",
+      "badge": "🟡 MASTER VERIFIED",
+      "skillScore": 95,
+      "rating": 4.8,
+      "reviewCount": 312,
+      "experienceYears": 8,
+      "jobsCompleted": 1240,
+      "stats": {
+        "jobSuccessRate": 98,
+        "onTimeRate": 96,
+        "repeatCustomerRate": 42,
+        "avgResolutionTime": "45 mins"
+      },
+      "city": "Mumbai",
+      "areasServed": [
+        "Andheri",
+        "Bandra",
+        "Juhu",
+        "Santacruz",
+        "Powai"
+      ],
+      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&auto=format&fit=crop&q=80",
+      "bio": "NCVT certified master industrial & residential electrician with 8+ years experience. Specializes in advanced short-circuit diagnosis, high-load phase balancing, and smart automation distribution boards.",
+      "pricing": {
+        "basePrice": 1199,
+        "rangeText": "₹1,199 – ₹1,899 / Service",
+        "inspectionFee": 399,
+        "unit": "service"
+      },
+      "skillBreakdown": [
+        {
+          "name": "Electrical Diagnosis",
+          "score": 98
+        },
+        {
+          "name": "Wiring & Cable Layout",
+          "score": 97
+        },
+        {
+          "name": "Appliance Repair",
+          "score": 96
+        },
+        {
+          "name": "Safety Standards & Earthing",
+          "score": 99
+        },
+        {
+          "name": "Distribution Panel Installation",
+          "score": 95
+        }
+      ],
+      "scoreComponents": {
+        "practicalTest": {
+          "score": 100,
+          "weight": "40%",
+          "points": 40
+        },
+        "verifiedExperience": {
+          "score": "8 Years",
+          "weight": "20%",
+          "points": 16
+        },
+        "jobSuccessRate": {
+          "score": "98%",
+          "weight": "15%",
+          "points": 14.7
+        },
+        "customerFeedback": {
+          "score": "4.8/5.0",
+          "weight": "10%",
+          "points": 9.6
+        },
+        "certifications": {
+          "score": "2 Verified",
+          "weight": "10%",
+          "points": 10
+        },
+        "reliability": {
+          "score": "96% On-Time",
+          "weight": "5%",
+          "points": 4.8
+        }
+      },
+      "verifications": {
+        "identityVerified": true,
+        "identityDocType": "Aadhaar / National ID",
+        "practicalTestPassed": true,
+        "practicalTestScore": 100,
+        "experienceVerified": true,
+        "experienceProof": "8 Years Verified Service Log & Tax Returns",
+        "certificationVerified": true,
+        "certCount": 2,
+        "backgroundCheck": true,
+        "backgroundStatus": "Clear - State Police Verification Record #MH-6721"
+      },
+      "certifications": [
+        {
+          "id": "cert-101",
+          "name": "National Trade Certificate in Electrical Engineering (ITI)",
+          "issuer": "National Council for Vocational Training (NCVT)",
+          "issueDate": "2016-07-20",
+          "expiryDate": "Lifetime",
+          "credentialId": "NCVT-EL-2016-8842",
+          "verified": true
+        },
+        {
+          "id": "cert-102",
+          "name": "Certified Smart Home & Solar Automation Specialist",
+          "issuer": "Schneider Electric Institute of Technology",
+          "issueDate": "2022-04-15",
+          "expiryDate": "2027-04-15",
+          "credentialId": "SE-IN-7739-SH",
+          "verified": true
+        }
+      ],
+      "portfolio": [
+        {
+          "id": "port-1",
+          "title": "Penthouse Main Distribution Board Rewiring & Surge Protection",
+          "category": "Wiring & Safety",
+          "beforeImage": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&auto=format&fit=crop&q=80",
+          "afterImage": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&auto=format&fit=crop&q=80",
+          "description": "Replaced a dangerous 25-year-old tangled fuse box with a modern ABB RCCB/MCB enclosure, isolating dampness and preventing circuit breaker tripping."
+        },
+        {
+          "id": "port-2",
+          "title": "Commercial Restaurant 3-Phase Heavy Kitchen Setup",
+          "category": "Commercial",
+          "beforeImage": "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?w=600&auto=format&fit=crop&q=80",
+          "afterImage": "https://images.unsplash.com/photo-1581092335397-9583fe92d232?w=600&auto=format&fit=crop&q=80",
+          "description": "Engineered dedicated circuits for blast chillers and high-capacity ovens, balancing current draw across 3 phases to avoid voltage spikes."
+        }
+      ],
+      "experienceTimeline": [
+        {
+          "year": "2016",
+          "role": "Apprentice Electrician",
+          "org": "Tata Power Contractors",
+          "desc": "Completed 1,800 hours supervised field installation and industrial safety training."
+        },
+        {
+          "year": "2019",
+          "role": "Lead Field Electrician",
+          "org": "Urban Infrastructure Solutions",
+          "desc": "Managed fault diagnosis teams for high-rise residential complexes."
+        },
+        {
+          "year": "2022",
+          "role": "Master Verification Level Awarded",
+          "org": "SkillServe Platform",
+          "desc": "Scored 96% on advanced practical diagnostic exam; verified 1,000+ jobs with 98% success."
+        }
+      ],
+      "passportQrData": "skillserve://verify/worker/w-1?code=SS-MAST-94-RS"
+    },
+    {
+      "id": "w-2",
+      "userId": "usr-worker-2",
+      "name": "Suresh Nair",
+      "specialty": "Expert AC Technician",
+      "category": "AC Technicians",
+      "level": 3,
+      "tierName": "Expert",
+      "badge": "🟣 EXPERT",
+      "skillScore": 88,
+      "rating": 4.7,
+      "reviewCount": 204,
+      "experienceYears": 6,
+      "jobsCompleted": 820,
+      "stats": {
+        "jobSuccessRate": 96,
+        "onTimeRate": 94,
+        "repeatCustomerRate": 38,
+        "avgResolutionTime": "60 mins"
+      },
+      "city": "Mumbai",
+      "areasServed": [
+        "Thane",
+        "Mulund",
+        "Powai",
+        "Vikhroli"
+      ],
+      "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&auto=format&fit=crop&q=80",
+      "bio": "HVAC refrigeration specialist with 6 years experience. Expert in Inverter AC PCB troubleshooting, nitrogen pressure leak testing, and eco-friendly R32/R410 gas recovery.",
+      "pricing": {
+        "basePrice": 799,
+        "rangeText": "₹799 – ₹1,399 / Service",
+        "inspectionFee": 299,
+        "unit": "service"
+      },
+      "skillBreakdown": [
+        {
+          "name": "Compressor Diagnosis",
+          "score": 92
+        },
+        {
+          "name": "Refrigerant Leak Sealing",
+          "score": 89
+        },
+        {
+          "name": "Inverter PCB Testing",
+          "score": 85
+        },
+        {
+          "name": "Deep Jet Washing",
+          "score": 94
+        },
+        {
+          "name": "Airflow Optimization",
+          "score": 87
+        }
+      ],
+      "scoreComponents": {
+        "practicalTest": {
+          "score": 90,
+          "weight": "40%",
+          "points": 36
+        },
+        "verifiedExperience": {
+          "score": "6 Years",
+          "weight": "20%",
+          "points": 12
+        },
+        "jobSuccessRate": {
+          "score": "96%",
+          "weight": "15%",
+          "points": 14.4
+        },
+        "customerFeedback": {
+          "score": "4.7/5",
+          "weight": "10%",
+          "points": 9.4
+        },
+        "certifications": {
+          "score": "1 Verified",
+          "weight": "10%",
+          "points": 7
+        },
+        "reliability": {
+          "score": "94% On-Time",
+          "weight": "5%",
+          "points": 4.7
+        }
+      },
+      "verifications": {
+        "identityVerified": true,
+        "identityDocType": "Aadhaar / National ID",
+        "practicalTestPassed": true,
+        "practicalTestScore": 90,
+        "experienceVerified": true,
+        "experienceProof": "6 Years Authorized Service Partner Records (Daikin/Voltas)",
+        "certificationVerified": true,
+        "certCount": 1,
+        "backgroundCheck": true,
+        "backgroundStatus": "Clear"
+      },
+      "certifications": [
+        {
+          "id": "cert-201",
+          "name": "HVAC Refrigerant Handling & Safety Certification",
+          "issuer": "Indian Society of Heating & Refrigeration Engineers (ISHRAE)",
+          "issueDate": "2020-03-12",
+          "expiryDate": "2026-03-12",
+          "credentialId": "ISHRAE-AC-4091",
+          "verified": true
+        }
+      ],
+      "portfolio": [
+        {
+          "id": "port-21",
+          "title": "Inverter AC Cooling Coil Micro-Leak Detection & Repair",
+          "category": "Cooling Restoration",
+          "beforeImage": "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=600&auto=format&fit=crop&q=80",
+          "afterImage": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=600&auto=format&fit=crop&q=80",
+          "description": "Detected a hairline bend leak using halogen sniffer, brazed with copper-phosphorus alloy, nitrogen tested at 350 PSI and recharged gas."
+        }
+      ],
+      "experienceTimeline": [
+        {
+          "year": "2018",
+          "role": "HVAC Service Technician",
+          "org": "Voltas Authorised Centre",
+          "desc": "Handled over 500 seasonal split and window AC maintenance tickets."
+        },
+        {
+          "year": "2021",
+          "role": "Senior Inverter Specialist",
+          "org": "CoolTech Solutions",
+          "desc": "Specialized in micro-processor controller card diagnostics."
+        }
+      ],
+      "passportQrData": "skillserve://verify/worker/w-2?code=SS-EXPT-88-SN"
+    },
+    {
+      "id": "w-3",
+      "userId": "usr-worker-3",
+      "name": "Rajesh Kumar",
+      "specialty": "Master Plumber",
+      "category": "Plumbers",
+      "level": 4,
+      "tierName": "Master",
+      "badge": "🟡 MASTER VERIFIED",
+      "skillScore": 92,
+      "rating": 4.9,
+      "reviewCount": 380,
+      "experienceYears": 10,
+      "jobsCompleted": 1450,
+      "stats": {
+        "jobSuccessRate": 99,
+        "onTimeRate": 98,
+        "repeatCustomerRate": 46,
+        "avgResolutionTime": "50 mins"
+      },
+      "city": "Bengaluru",
+      "areasServed": [
+        "Indiranagar",
+        "Koramangala",
+        "Whitefield",
+        "HSR Layout"
+      ],
+      "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=300&auto=format&fit=crop&q=80",
+      "bio": "10 years master plumbing professional. Expertise in acoustic and thermal pipe leakage detection without breaking tiles, high-pressure booster pump calibration, and CPVC thermal fusing.",
+      "pricing": {
+        "basePrice": 1199,
+        "rangeText": "₹1,199 – ₹1,999 / Service",
+        "inspectionFee": 399,
+        "unit": "service"
+      },
+      "skillBreakdown": [
+        {
+          "name": "Hydrostatic Pressure Testing",
+          "score": 96
+        },
+        {
+          "name": "Concealed Pipe Detection",
+          "score": 95
+        },
+        {
+          "name": "Sanitary Fixture Alignment",
+          "score": 94
+        },
+        {
+          "name": "Booster Pump Calibration",
+          "score": 91
+        },
+        {
+          "name": "Drainage Gradient & Venting",
+          "score": 93
+        }
+      ],
+      "scoreComponents": {
+        "practicalTest": {
+          "score": 94,
+          "weight": "40%",
+          "points": 37.6
+        },
+        "verifiedExperience": {
+          "score": "10 Years",
+          "weight": "20%",
+          "points": 20
+        },
+        "jobSuccessRate": {
+          "score": "99%",
+          "weight": "15%",
+          "points": 14.85
+        },
+        "customerFeedback": {
+          "score": "4.9/5",
+          "weight": "10%",
+          "points": 9.8
+        },
+        "certifications": {
+          "score": "2 Verified",
+          "weight": "10%",
+          "points": 10
+        },
+        "reliability": {
+          "score": "98% On-Time",
+          "weight": "5%",
+          "points": 4.9
+        }
+      },
+      "verifications": {
+        "identityVerified": true,
+        "identityDocType": "Aadhaar / National ID",
+        "practicalTestPassed": true,
+        "practicalTestScore": 94,
+        "experienceVerified": true,
+        "experienceProof": "10 Years Trade License & Commercial Contracts",
+        "certificationVerified": true,
+        "certCount": 2,
+        "backgroundCheck": true,
+        "backgroundStatus": "Clear"
+      },
+      "certifications": [
+        {
+          "id": "cert-301",
+          "name": "Master Plumbing & Hydraulic Piping License",
+          "issuer": "Indian Plumbing Skills Council (IPSC)",
+          "issueDate": "2015-05-18",
+          "expiryDate": "Lifetime",
+          "credentialId": "IPSC-MST-1902",
+          "verified": true
+        }
+      ],
+      "portfolio": [
+        {
+          "id": "port-31",
+          "title": "Non-Invasive Bathroom Floor Concealed Leak Repair",
+          "category": "Acoustic Detection",
+          "beforeImage": "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&auto=format&fit=crop&q=80",
+          "afterImage": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&auto=format&fit=crop&q=80",
+          "description": "Pinpointed underground elbow crack using acoustic listening probe, avoiding ripping 120 sq ft of imported marble tiles."
+        }
+      ],
+      "experienceTimeline": [
+        {
+          "year": "2014",
+          "role": "Commercial Piping Foreman",
+          "org": "Prestige Group Projects",
+          "desc": "Supervised vertical riser installations for luxury residential towers."
+        },
+        {
+          "year": "2023",
+          "role": "Master Verified Pro",
+          "org": "SkillServe",
+          "desc": "Achieved 99% job success rate across 1,400+ verified appointments."
+        }
+      ],
+      "passportQrData": "skillserve://verify/worker/w-3?code=SS-MAST-92-RK"
+    },
+    {
+      "id": "w-4",
+      "userId": "usr-worker-4",
+      "name": "Amit Verma",
+      "specialty": "Skilled Carpenter",
+      "category": "Carpenters",
+      "level": 2,
+      "tierName": "Skilled",
+      "badge": "🔵 SKILLED",
+      "skillScore": 76,
+      "rating": 4.5,
+      "reviewCount": 94,
+      "experienceYears": 4,
+      "jobsCompleted": 340,
+      "stats": {
+        "jobSuccessRate": 94,
+        "onTimeRate": 91,
+        "repeatCustomerRate": 24,
+        "avgResolutionTime": "90 mins"
+      },
+      "city": "Delhi NCR",
+      "areasServed": [
+        "Noida",
+        "Gurugram",
+        "South Delhi",
+        "Dwarka"
+      ],
+      "avatar": "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=300&auto=format&fit=crop&q=80",
+      "bio": "Skilled furniture craftsman with 4 years experience. Specializes in hydraulic bed repairs, soft-close hinge replacements, and modular kitchen hardware adjustments.",
+      "pricing": {
+        "basePrice": 549,
+        "rangeText": "₹549 – ₹999 / Service",
+        "inspectionFee": 249,
+        "unit": "service"
+      },
+      "skillBreakdown": [
+        {
+          "name": "Hardware & Hinge Fitting",
+          "score": 82
+        },
+        {
+          "name": "Laminate Edge Banding",
+          "score": 76
+        },
+        {
+          "name": "Timber Joinery",
+          "score": 74
+        },
+        {
+          "name": "Lock & Channel Installation",
+          "score": 79
+        },
+        {
+          "name": "Surface Polishing",
+          "score": 71
+        }
+      ],
+      "scoreComponents": {
+        "practicalTest": {
+          "score": 78,
+          "weight": "40%",
+          "points": 31.2
+        },
+        "verifiedExperience": {
+          "score": "4 Years",
+          "weight": "20%",
+          "points": 8
+        },
+        "jobSuccessRate": {
+          "score": "94%",
+          "weight": "15%",
+          "points": 14.1
+        },
+        "customerFeedback": {
+          "score": "4.5/5",
+          "weight": "10%",
+          "points": 9
+        },
+        "certifications": {
+          "score": "1 Verified",
+          "weight": "10%",
+          "points": 7
+        },
+        "reliability": {
+          "score": "91% On-Time",
+          "weight": "5%",
+          "points": 4.55
+        }
+      },
+      "verifications": {
+        "identityVerified": true,
+        "identityDocType": "Aadhaar / National ID",
+        "practicalTestPassed": true,
+        "practicalTestScore": 78,
+        "experienceVerified": true,
+        "experienceProof": "4 Years Carpenter Guild Verification",
+        "certificationVerified": true,
+        "certCount": 1,
+        "backgroundCheck": true,
+        "backgroundStatus": "Clear"
+      },
+      "certifications": [
+        {
+          "id": "cert-401",
+          "name": "Furniture & Fittings Skill Certification",
+          "issuer": "Furniture & Fittings Skill Council (FFSC)",
+          "issueDate": "2021-08-10",
+          "expiryDate": "2026-08-10",
+          "credentialId": "FFSC-W-8931",
+          "verified": true
+        }
+      ],
+      "portfolio": [
+        {
+          "id": "port-41",
+          "title": "Modular Kitchen Hydraulic Lift-Up Mechanism Replacement",
+          "category": "Hardware Repair",
+          "beforeImage": "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=600&auto=format&fit=crop&q=80",
+          "afterImage": "https://images.unsplash.com/photo-1556909212-d5b604d0c90d?w=600&auto=format&fit=crop&q=80",
+          "description": "Installed heavy-duty Blum hydraulic struts to restore effortless soft opening for overhead kitchen cabinets."
+        }
+      ],
+      "experienceTimeline": [
+        {
+          "year": "2020",
+          "role": "Woodwork Assistant",
+          "org": "Classic Wood Craft",
+          "desc": "Crafted custom teak door frames and window sashes."
+        },
+        {
+          "year": "2023",
+          "role": "Skilled Pro",
+          "org": "SkillServe",
+          "desc": "Achieved Level 2 Skilled badge after passing practical hardware assembly test."
+        }
+      ],
+      "passportQrData": "skillserve://verify/worker/w-4?code=SS-SKLD-76-AV"
+    },
+    {
+      "id": "w-5",
+      "userId": "usr-worker-5",
+      "name": "Deepa Sundaram",
+      "specialty": "Master Beautician & Cosmetologist",
+      "category": "Beauticians",
+      "level": 4,
+      "tierName": "Master",
+      "badge": "🟡 MASTER VERIFIED",
+      "skillScore": 95,
+      "rating": 4.95,
+      "reviewCount": 420,
+      "experienceYears": 9,
+      "jobsCompleted": 1600,
+      "stats": {
+        "jobSuccessRate": 99,
+        "onTimeRate": 97,
+        "repeatCustomerRate": 58,
+        "avgResolutionTime": "75 mins"
+      },
+      "city": "Mumbai",
+      "areasServed": [
+        "South Mumbai",
+        "Bandra",
+        "Khar",
+        "Worli",
+        "Prabhadevi"
+      ],
+      "avatar": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&auto=format&fit=crop&q=80",
+      "bio": "CIDESCO certified cosmetologist with 9 years of luxury salon & home service experience. Specializes in clinical facials, bridal hair artistry, and organic dermatological treatments.",
+      "pricing": {
+        "basePrice": 1499,
+        "rangeText": "₹1,499 – ₹3,499 / Service",
+        "inspectionFee": 499,
+        "unit": "session"
+      },
+      "skillBreakdown": [
+        {
+          "name": "Skin Chemistry & Facial Therapy",
+          "score": 98
+        },
+        {
+          "name": "Hygienic Disposable Protocols",
+          "score": 99
+        },
+        {
+          "name": "Hair Texture & Styling",
+          "score": 93
+        },
+        {
+          "name": "HD Bridal Makeup Artistry",
+          "score": 96
+        },
+        {
+          "name": "Organic Product Safety",
+          "score": 94
+        }
+      ],
+      "scoreComponents": {
+        "practicalTest": {
+          "score": 97,
+          "weight": "40%",
+          "points": 38.8
+        },
+        "verifiedExperience": {
+          "score": "9 Years",
+          "weight": "20%",
+          "points": 18
+        },
+        "jobSuccessRate": {
+          "score": "99%",
+          "weight": "15%",
+          "points": 14.85
+        },
+        "customerFeedback": {
+          "score": "4.95/5",
+          "weight": "10%",
+          "points": 9.9
+        },
+        "certifications": {
+          "score": "3 Verified",
+          "weight": "10%",
+          "points": 10
+        },
+        "reliability": {
+          "score": "97% On-Time",
+          "weight": "5%",
+          "points": 4.85
+        }
+      },
+      "verifications": {
+        "identityVerified": true,
+        "identityDocType": "Aadhaar / National ID",
+        "practicalTestPassed": true,
+        "practicalTestScore": 97,
+        "experienceVerified": true,
+        "experienceProof": "9 Years Salon Registry & Freelance Records",
+        "certificationVerified": true,
+        "certCount": 3,
+        "backgroundCheck": true,
+        "backgroundStatus": "Clear"
+      },
+      "certifications": [
+        {
+          "id": "cert-501",
+          "name": "International CIDESCO Diploma in Beauty Therapy",
+          "issuer": "Comité International d’Esthétique et de Cosmétologie (Switzerland)",
+          "issueDate": "2016-10-14",
+          "expiryDate": "Lifetime",
+          "credentialId": "CIDESCO-INT-7621",
+          "verified": true
+        }
+      ],
+      "portfolio": [
+        {
+          "id": "port-51",
+          "title": "Clinical Hydra-Infusion Skin Rejuvenation Treatment",
+          "category": "Skincare",
+          "beforeImage": "https://images.unsplash.com/photo-1512290900672-1f551a37c0f1?w=600&auto=format&fit=crop&q=80",
+          "afterImage": "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&auto=format&fit=crop&q=80",
+          "description": "Applied customized hyaluronic serum therapy with medical-grade sterile suction tips to clear congestion and improve hydration by 40%."
+        }
+      ],
+      "experienceTimeline": [
+        {
+          "year": "2015",
+          "role": "Senior Esthetician",
+          "org": "Lakme Absolute Salon",
+          "desc": "Supervised skin therapy consultations for premium clients."
+        },
+        {
+          "year": "2023",
+          "role": "Master Verified Cosmetologist",
+          "org": "SkillServe",
+          "desc": "Maintains top satisfaction score (4.95/5) across 1,600 bookings."
+        }
+      ],
+      "passportQrData": "skillserve://verify/worker/w-5?code=SS-MAST-95-DS"
+    },
+    {
+      "id": "w-6",
+      "userId": "usr-worker-6",
+      "name": "Farhan Akhtar",
+      "specialty": "Expert Appliance Repair",
+      "category": "Appliance Repair Technicians",
+      "level": 3,
+      "tierName": "Expert",
+      "badge": "🟣 EXPERT",
+      "skillScore": 86,
+      "rating": 4.7,
+      "reviewCount": 160,
+      "experienceYears": 5,
+      "jobsCompleted": 710,
+      "stats": {
+        "jobSuccessRate": 95,
+        "onTimeRate": 93,
+        "repeatCustomerRate": 31,
+        "avgResolutionTime": "40 mins"
+      },
+      "city": "Pune",
+      "areasServed": [
+        "Kothrud",
+        "Baner",
+        "Viman Nagar",
+        "Wakad",
+        "Hinjewadi"
+      ],
+      "avatar": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=300&auto=format&fit=crop&q=80",
+      "bio": "Specialist in front-load washing machines, microwave magnetrons, and inverter refrigerator PCB boards. Certified by Bosch and IFB service academies.",
+      "pricing": {
+        "basePrice": 899,
+        "rangeText": "₹899 – ₹1,499 / Service",
+        "inspectionFee": 299,
+        "unit": "service"
+      },
+      "skillBreakdown": [
+        {
+          "name": "Drum Bearing & Motor Testing",
+          "score": 91
+        },
+        {
+          "name": "PCB Logic Board Repair",
+          "score": 86
+        },
+        {
+          "name": "Defrost Heater Diagnostics",
+          "score": 88
+        },
+        {
+          "name": "Solenoid Valve Replacement",
+          "score": 85
+        },
+        {
+          "name": "High-Voltage Safety Discharge",
+          "score": 92
+        }
+      ],
+      "scoreComponents": {
+        "practicalTest": {
+          "score": 88,
+          "weight": "40%",
+          "points": 35.2
+        },
+        "verifiedExperience": {
+          "score": "5 Years",
+          "weight": "20%",
+          "points": 10
+        },
+        "jobSuccessRate": {
+          "score": "95%",
+          "weight": "15%",
+          "points": 14.25
+        },
+        "customerFeedback": {
+          "score": "4.7/5",
+          "weight": "10%",
+          "points": 9.4
+        },
+        "certifications": {
+          "score": "2 Verified",
+          "weight": "10%",
+          "points": 10
+        },
+        "reliability": {
+          "score": "93% On-Time",
+          "weight": "5%",
+          "points": 4.65
+        }
+      },
+      "verifications": {
+        "identityVerified": true,
+        "identityDocType": "Aadhaar / National ID",
+        "practicalTestPassed": true,
+        "practicalTestScore": 88,
+        "experienceVerified": true,
+        "experienceProof": "5 Years Authorized Service Partner Records",
+        "certificationVerified": true,
+        "certCount": 2,
+        "backgroundCheck": true,
+        "backgroundStatus": "Clear"
+      },
+      "certifications": [
+        {
+          "id": "cert-601",
+          "name": "Bosch Professional Appliance Diagnostics Credential",
+          "issuer": "BSH Home Appliances Group",
+          "issueDate": "2021-02-14",
+          "expiryDate": "2026-02-14",
+          "credentialId": "BSH-APP-3392",
+          "verified": true
+        }
+      ],
+      "portfolio": [
+        {
+          "id": "port-61",
+          "title": "Front Load Washing Machine Spider Arm & Bearing Replacement",
+          "category": "Mechanical Rebuild",
+          "beforeImage": "https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=600&auto=format&fit=crop&q=80",
+          "afterImage": "https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?w=600&auto=format&fit=crop&q=80",
+          "description": "Replaced cracked aluminum spider arm and dual Japanese bearings, eliminating extreme drum shudder during 1200 RPM spin cycle."
+        }
+      ],
+      "experienceTimeline": [
+        {
+          "year": "2019",
+          "role": "Field Service Engineer",
+          "org": "IFB Home Appliances",
+          "desc": "Resolved 600+ complex error code tickets across residential Pune."
+        }
+      ],
+      "passportQrData": "skillserve://verify/worker/w-6?code=SS-EXPT-86-FA"
+    },
+    {
+      "id": "w-7",
+      "userId": "usr-worker-7",
+      "name": "Rohan Gupta",
+      "specialty": "Master Web Developer",
+      "category": "Web Developers",
+      "level": 4,
+      "tierName": "Master",
+      "badge": "🟡 MASTER VERIFIED",
+      "skillScore": 96,
+      "rating": 4.95,
+      "reviewCount": 98,
+      "experienceYears": 7,
+      "jobsCompleted": 210,
+      "stats": {
+        "jobSuccessRate": 99,
+        "onTimeRate": 98,
+        "repeatCustomerRate": 52,
+        "avgResolutionTime": "24 hrs"
+      },
+      "city": "Bengaluru",
+      "areasServed": [
+        "Remote / All India",
+        "HSR",
+        "Indiranagar",
+        "Koramangala"
+      ],
+      "avatar": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=300&auto=format&fit=crop&q=80",
+      "bio": "Fullstack architect specializing in React, Node, Next.js, and high-performance MongoDB/PostgreSQL backends. Passed SkillServe algorithm and architecture practical benchmark in top 1%.",
+      "pricing": {
+        "basePrice": 2499,
+        "rangeText": "₹2,499 – ₹6,999 / Milestone",
+        "inspectionFee": 799,
+        "unit": "milestone"
+      },
+      "skillBreakdown": [
+        {
+          "name": "React & Frontend Architecture",
+          "score": 98
+        },
+        {
+          "name": "REST/GraphQL API Engineering",
+          "score": 96
+        },
+        {
+          "name": "Database Optimization & Indexing",
+          "score": 95
+        },
+        {
+          "name": "Application Security & JWT",
+          "score": 97
+        },
+        {
+          "name": "Performance & Lighthouse Audit",
+          "score": 96
+        }
+      ],
+      "scoreComponents": {
+        "practicalTest": {
+          "score": 98,
+          "weight": "40%",
+          "points": 39.2
+        },
+        "verifiedExperience": {
+          "score": "7 Years",
+          "weight": "20%",
+          "points": 14
+        },
+        "jobSuccessRate": {
+          "score": "99%",
+          "weight": "15%",
+          "points": 14.85
+        },
+        "customerFeedback": {
+          "score": "4.95/5",
+          "weight": "10%",
+          "points": 9.9
+        },
+        "certifications": {
+          "score": "2 Verified",
+          "weight": "10%",
+          "points": 10
+        },
+        "reliability": {
+          "score": "98% On-Time",
+          "weight": "5%",
+          "points": 4.9
+        }
+      },
+      "verifications": {
+        "identityVerified": true,
+        "identityDocType": "Aadhaar / Passport",
+        "practicalTestPassed": true,
+        "practicalTestScore": 98,
+        "experienceVerified": true,
+        "experienceProof": "7 Years GitHub commits, enterprise contracts & tax filings",
+        "certificationVerified": true,
+        "certCount": 2,
+        "backgroundCheck": true,
+        "backgroundStatus": "Clear"
+      },
+      "certifications": [
+        {
+          "id": "cert-701",
+          "name": "AWS Certified Solutions Architect – Associate",
+          "issuer": "Amazon Web Services",
+          "issueDate": "2022-06-11",
+          "expiryDate": "2025-06-11",
+          "credentialId": "AWS-SAA-8849",
+          "verified": true
+        }
+      ],
+      "portfolio": [
+        {
+          "id": "port-71",
+          "title": "Fintech Microservices & React Realtime Ledger System",
+          "category": "Fullstack SaaS",
+          "beforeImage": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&auto=format&fit=crop&q=80",
+          "afterImage": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&auto=format&fit=crop&q=80",
+          "description": "Optimized unindexed MongoDB pipeline queries, dropping P99 latency from 1.8s down to 32ms and boosting Lighthouse score to 99."
+        }
+      ],
+      "experienceTimeline": [
+        {
+          "year": "2018",
+          "role": "Software Engineer",
+          "org": "Flipkart Tech Labs",
+          "desc": "Contributed to high-throughput inventory management services."
+        },
+        {
+          "year": "2023",
+          "role": "Master Verified Developer",
+          "org": "SkillServe",
+          "desc": "Delivered 200+ production milestones with 99% success rate."
+        }
+      ],
+      "passportQrData": "skillserve://verify/worker/w-7?code=SS-MAST-96-RG"
+    },
+    {
+      "id": "w-8",
+      "userId": "usr-worker-8",
+      "name": "Manoj Tiwari",
+      "specialty": "Basic Electrician",
+      "category": "Electricians",
+      "level": 1,
+      "tierName": "Basic",
+      "badge": "🟢 BASIC",
+      "skillScore": 58,
+      "rating": 4.2,
+      "reviewCount": 28,
+      "experienceYears": 1,
+      "jobsCompleted": 64,
+      "stats": {
+        "jobSuccessRate": 89,
+        "onTimeRate": 88,
+        "repeatCustomerRate": 12,
+        "avgResolutionTime": "60 mins"
+      },
+      "city": "Mumbai",
+      "areasServed": [
+        "Dharavi",
+        "Sion",
+        "Kurla",
+        "Ghatkopar"
+      ],
+      "avatar": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=300&auto=format&fit=crop&q=80",
+      "bio": "Entry-level certified electrician. Passed SkillServe basic electrical safety and wiring test. Ideal for switchboard replacements, light fixture hangings, and simple fan installations.",
+      "pricing": {
+        "basePrice": 349,
+        "rangeText": "₹349 – ₹599 / Service",
+        "inspectionFee": 149,
+        "unit": "service"
+      },
+      "skillBreakdown": [
+        {
+          "name": "Basic Light & Fan Fitting",
+          "score": 72
+        },
+        {
+          "name": "Switch & Socket Replacement",
+          "score": 68
+        },
+        {
+          "name": "Fuse Wire Checking",
+          "score": 62
+        },
+        {
+          "name": "Basic Continuity Test",
+          "score": 59
+        },
+        {
+          "name": "Earthing Awareness",
+          "score": 60
+        }
+      ],
+      "scoreComponents": {
+        "practicalTest": {
+          "score": 66,
+          "weight": "40%",
+          "points": 26.4
+        },
+        "verifiedExperience": {
+          "score": "1 Year",
+          "weight": "20%",
+          "points": 2
+        },
+        "jobSuccessRate": {
+          "score": "89%",
+          "weight": "15%",
+          "points": 13.35
+        },
+        "customerFeedback": {
+          "score": "4.2/5",
+          "weight": "10%",
+          "points": 8.4
+        },
+        "certifications": {
+          "score": "0 Verified",
+          "weight": "10%",
+          "points": 3
+        },
+        "reliability": {
+          "score": "88% On-Time",
+          "weight": "5%",
+          "points": 4.4
+        }
+      },
+      "verifications": {
+        "identityVerified": true,
+        "identityDocType": "Aadhaar / National ID",
+        "practicalTestPassed": true,
+        "practicalTestScore": 66,
+        "experienceVerified": true,
+        "experienceProof": "Apprenticeship Completion Certificate",
+        "certificationVerified": false,
+        "certCount": 0,
+        "backgroundCheck": true,
+        "backgroundStatus": "Clear"
+      },
+      "certifications": [],
+      "portfolio": [],
+      "experienceTimeline": [
+        {
+          "year": "2023",
+          "role": "Trainee Electrician",
+          "org": "Local Electrical Contractor",
+          "desc": "Assisted in commercial shop wiring."
+        }
+      ],
+      "passportQrData": "skillserve://verify/worker/w-8?code=SS-BASC-58-MT"
+    }
+  ],
+  "categories": [
+    {
+      "id": "electricians",
+      "name": "Electricians",
+      "icon": "Zap",
+      "count": 185,
+      "description": "Wiring, short-circuits, MCB replacements, and appliance installations",
+      "minPrice": 299
+    },
+    {
+      "id": "plumbers",
+      "name": "Plumbers",
+      "icon": "Wrench",
+      "count": 142,
+      "description": "Leak detection, pipeline layout, sanitary fixtures, and motor repair",
+      "minPrice": 299
+    },
+    {
+      "id": "carpenters",
+      "name": "Carpenters",
+      "icon": "Hammer",
+      "count": 118,
+      "description": "Modular furniture, door fitting, wood repair, and bespoke joinery",
+      "minPrice": 349
+    },
+    {
+      "id": "ac-technicians",
+      "name": "AC Technicians",
+      "icon": "AirVent",
+      "count": 160,
+      "description": "Deep jet service, compressor repair, gas charging, and installation",
+      "minPrice": 449
+    },
+    {
+      "id": "painters",
+      "name": "Painters",
+      "icon": "Paintbrush",
+      "count": 96,
+      "description": "Interior/exterior emulsions, waterproofing, texture, and stencil work",
+      "minPrice": 499
+    },
+    {
+      "id": "beauticians",
+      "name": "Beauticians",
+      "icon": "Sparkles",
+      "count": 210,
+      "description": "Salon at home, skincare therapies, bridal styling, and makeup",
+      "minPrice": 599
+    },
+    {
+      "id": "appliance-repair",
+      "name": "Appliance Repair Technicians",
+      "icon": "Tv",
+      "count": 135,
+      "description": "Washing machines, microwave ovens, refrigerators, and RO purifiers",
+      "minPrice": 399
+    },
+    {
+      "id": "cleaning",
+      "name": "Cleaning Professionals",
+      "icon": "ShieldCheck",
+      "count": 220,
+      "description": "Deep home sanitization, sofa shampooing, kitchen & bathroom degreasing",
+      "minPrice": 399
+    },
+    {
+      "id": "mechanics",
+      "name": "Mechanics",
+      "icon": "Gauge",
+      "count": 88,
+      "description": "On-demand two-wheeler & four-wheeler breakdown diagnosis & tuning",
+      "minPrice": 499
+    },
+    {
+      "id": "tutors",
+      "name": "Tutors",
+      "icon": "GraduationCap",
+      "count": 175,
+      "description": "STEM coaching, language fluency, entrance exams, and academic mentoring",
+      "minPrice": 499
+    },
+    {
+      "id": "graphic-designers",
+      "name": "Graphic Designers",
+      "icon": "Palette",
+      "count": 104,
+      "description": "Brand identity, UI assets, marketing collaterals, and 3D mockups",
+      "minPrice": 799
+    },
+    {
+      "id": "web-developers",
+      "name": "Web Developers",
+      "icon": "Code",
+      "count": 120,
+      "description": "React, Node, fullstack MVPs, bug fixing, and performance tuning",
+      "minPrice": 1199
+    },
+    {
+      "id": "photographers",
+      "name": "Photographers",
+      "icon": "Camera",
+      "count": 92,
+      "description": "Events, product photoshoots, portraits, and cinematic drone videos",
+      "minPrice": 1499
+    },
+    {
+      "id": "other",
+      "name": "Solar & Smart Home Techs",
+      "icon": "SunMedium",
+      "count": 64,
+      "description": "Rooftop solar alignment, smart locks, CCTV, and IoT automation",
+      "minPrice": 699
+    }
+  ],
+  "assessments": [
+    {
+      "id": "test-electrician",
+      "category": "Electricians",
+      "title": "Professional Electrician Practical Diagnostic Assessment",
+      "description": "Evaluates circuit troubleshooting, phase balancing, earthing standards, and safety procedures.",
+      "durationMinutes": 15,
+      "passScore": 65,
+      "sections": [
+        {
+          "title": "Wiring Diagnosis & Fault Isolation",
+          "questions": [
+            {
+              "id": "q1",
+              "question": "A 16A MCB in a residential distribution board trips immediately upon connecting a 1.5-ton split AC. The continuity tester shows zero resistance between Phase and Neutral when the AC switch is turned ON. What is the root cause?",
+              "options": [
+                "A direct dead short circuit across Phase and Neutral wiring inside the circuit or compressor terminal",
+                "High earth resistance in the exterior grounding pit",
+                "Overvoltage coming from the utility feeder line",
+                "Neutral wire is sized too thick for current load"
+              ],
+              "correctAnswer": 0,
+              "skillArea": "Electrical Diagnosis",
+              "explanation": "Zero ohms between Phase and Neutral indicates an uninhibited path (dead short circuit) which causes instantaneous electromagnetic tripping of the MCB."
+            },
+            {
+              "id": "q2",
+              "question": "When measuring voltage with a True-RMS multimeter at a 3-pin wall socket, you read Phase-to-Neutral: 230V, Phase-to-Earth: 230V, and Neutral-to-Earth: 18V. What does the 18V Neutral-to-Earth voltage indicate?",
+              "options": [
+                "Poor or loose neutral connection causing floating neutral voltage drift under load",
+                "Normal perfect earthing condition with zero hazard",
+                "Excess phase current from inductive motor load",
+                "Defective multimeter calibration"
+              ],
+              "correctAnswer": 0,
+              "skillArea": "Safety Standards & Earthing",
+              "explanation": "Neutral-to-Earth voltage in residential wiring should ideally be under 2-3V. A reading of 18V indicates an overloaded or loose neutral return, which can damage delicate electronics."
+            },
+            {
+              "id": "q3",
+              "question": "What is the platform-mandated safety procedure before replacing an RCCB (Residual Current Circuit Breaker) in an active distribution panel?",
+              "options": [
+                "Isolate main upstream DP isolator, apply Lockout/Tagout (LOTO), and verify absence of voltage with a calibrated non-contact/digital tester",
+                "Wear rubber slippers and proceed without cutting main power",
+                "Touch the terminal with a single neon tester screwdriver and begin unscrewing",
+                "Spray contact cleaner on the live busbar"
+              ],
+              "correctAnswer": 0,
+              "skillArea": "Safety Standards & Earthing",
+              "explanation": "Complete isolation, lockout/tagout, and zero-voltage verification is non-negotiable for Level 3 and Level 4 master certified electricians."
+            },
+            {
+              "id": "q4",
+              "question": "A homeowner reports that touching the stainless steel body of their refrigerator gives a mild tingling electric shock. What is the primary diagnosis?",
+              "options": [
+                "Broken or missing earthing conductor on the refrigerator 3-pin plug/socket",
+                "The refrigerator is running in eco energy mode",
+                "The compressor gas pressure is too high",
+                "The wall paint has moisture"
+              ],
+              "correctAnswer": 0,
+              "skillArea": "Appliance Repair",
+              "explanation": "Body leakage currents from motor insulation must drain safely through the protective earth. If earthing is broken, the voltage discharges through human contact."
+            },
+            {
+              "id": "q5",
+              "question": "When wiring an inverter transfer switch, what hazard occurs if the inverter neutral and grid mains neutral are inadvertently cross-connected without neutral isolation?",
+              "options": [
+                "The upstream RCCB will instantly trip due to unbalanced return current",
+                "The inverter battery will charge twice as fast",
+                "The AC voltage will automatically double to 460V",
+                "No issue occurs"
+              ],
+              "correctAnswer": 0,
+              "skillArea": "Wiring & Cable Layout",
+              "explanation": "Cross-connecting neutrals causes residual currents to bypass the sensing toroid of the RCCB, triggering nuisance tripping or neutralizing ground fault protection."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "test-ac",
+      "category": "AC Technicians",
+      "title": "Inverter & Split HVAC Practical Assessment",
+      "description": "Evaluates refrigerant leak testing, inverter PCB troubleshooting, and pressure metrics.",
+      "durationMinutes": 15,
+      "passScore": 65,
+      "sections": [
+        {
+          "title": "Refrigeration Diagnostics",
+          "questions": [
+            {
+              "id": "ac-q1",
+              "question": "A 1.5 ton Inverter AC with R32 gas shows ice frosting along the thin liquid line service valve, and the indoor fan blows room temperature air. The suction pressure reads 45 PSI (normal is 115-125 PSI). What is the primary issue?",
+              "options": [
+                "Severe refrigerant shortage due to a piping micro-leak",
+                "Compressor has overfilled oil",
+                "Indoor temperature sensor has high resistance",
+                "The outdoor condenser fan is running at double speed"
+              ],
+              "correctAnswer": 0,
+              "skillArea": "Compressor Diagnosis",
+              "explanation": "Frosting on the discharge/liquid pipe accompanied by low suction pressure (45 PSI) is the classic diagnostic signature of low refrigerant caused by a leak."
+            },
+            {
+              "id": "ac-q2",
+              "question": "What is the required standard for nitrogen pressure testing after brazing a split AC copper flare joint?",
+              "options": [
+                "Pressurize with dry nitrogen up to 300–350 PSI and observe gauge for 15-30 minutes for zero pressure drop",
+                "Blow compressed air from bicycle pump to 20 PSI",
+                "Fill R32 gas directly and listen for hissing sounds",
+                "Spray soapy water without applying pressure"
+              ],
+              "correctAnswer": 0,
+              "skillArea": "Refrigerant Leak Sealing",
+              "explanation": "Dry nitrogen at 300+ PSI checks joint integrity without introducing moisture, which would otherwise contaminate synthetic POE compressor oil."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "bookings": [
+    {
+      "id": "bk-1001",
+      "bookingNumber": "SS-BK-2025-9812",
+      "customerId": "usr-customer-1",
+      "customerName": "Priya Malhotra",
+      "customerPhone": "+91 98201 45892",
+      "workerId": "w-1",
+      "workerName": "Rahul Sharma",
+      "workerSpecialty": "Master Electrician",
+      "workerTier": "Master",
+      "workerBadge": "🟡 MASTER VERIFIED",
+      "workerAvatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
+      "serviceTitle": "Main Switchboard Tripping & Kitchen Rewiring",
+      "category": "Electricians",
+      "scheduledDate": "2025-02-28",
+      "scheduledTimeSlot": "11:00 AM - 01:00 PM",
+      "address": "A-402, Sea Crest Towers, Bandra West, Mumbai 400050",
+      "status": "On The Way",
+      "trackingSteps": [
+        {
+          "step": "Confirmed",
+          "time": "09:30 AM",
+          "completed": true,
+          "note": "Booking verified and payment pre-authorized"
+        },
+        {
+          "step": "Worker Assigned",
+          "time": "09:32 AM",
+          "completed": true,
+          "note": "Rahul Sharma (Master Tier) assigned based on 98% diagnostic accuracy"
+        },
+        {
+          "step": "On The Way",
+          "time": "10:15 AM",
+          "completed": true,
+          "note": "Worker en route with calibrated tools & safety gear (ETA 25 mins)"
+        },
+        {
+          "step": "Job Started",
+          "time": null,
+          "completed": false,
+          "note": "Pending arrival & OTP verification"
+        },
+        {
+          "step": "Job Completed",
+          "time": null,
+          "completed": false,
+          "note": "Pending final safety inspection & customer sign-off"
+        }
+      ],
+      "pricing": {
+        "serviceFee": 1199,
+        "skillTierPremium": 200,
+        "safetyGearDiscount": -50,
+        "tax": 99,
+        "totalAmount": 1448
+      },
+      "paymentStatus": "Pre-Authorized (Razorpay)",
+      "paymentId": "pay_SS88219902",
+      "notes": "Please check high-power oven line causing RCCB tripping when preheating."
+    },
+    {
+      "id": "bk-1002",
+      "bookingNumber": "SS-BK-2025-8840",
+      "customerId": "usr-customer-1",
+      "customerName": "Priya Malhotra",
+      "customerPhone": "+91 98201 45892",
+      "workerId": "w-2",
+      "workerName": "Suresh Nair",
+      "workerSpecialty": "Expert AC Technician",
+      "workerTier": "Expert",
+      "workerBadge": "🟣 EXPERT",
+      "workerAvatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80",
+      "serviceTitle": "Dual Split AC Master Jet Cleaning & Gas Leak Test",
+      "category": "AC Technicians",
+      "scheduledDate": "2025-01-20",
+      "scheduledTimeSlot": "02:00 PM - 04:00 PM",
+      "address": "A-402, Sea Crest Towers, Bandra West, Mumbai 400050",
+      "status": "Job Completed",
+      "trackingSteps": [
+        {
+          "step": "Confirmed",
+          "time": "Jan 20, 10:00 AM",
+          "completed": true,
+          "note": "Confirmed"
+        },
+        {
+          "step": "Worker Assigned",
+          "time": "Jan 20, 10:05 AM",
+          "completed": true,
+          "note": "Suresh Nair assigned"
+        },
+        {
+          "step": "On The Way",
+          "time": "Jan 20, 01:15 PM",
+          "completed": true,
+          "note": "On route"
+        },
+        {
+          "step": "Job Started",
+          "time": "Jan 20, 01:55 PM",
+          "completed": true,
+          "note": "Disassembly and jet washing"
+        },
+        {
+          "step": "Job Completed",
+          "time": "Jan 20, 03:40 PM",
+          "completed": true,
+          "note": "Customer signed verified job completion"
+        }
+      ],
+      "pricing": {
+        "serviceFee": 899,
+        "skillTierPremium": 100,
+        "tax": 79,
+        "totalAmount": 1078
+      },
+      "paymentStatus": "Paid (Razorpay)",
+      "paymentId": "pay_SS77491032",
+      "isVerifiedJob": true,
+      "verifiedJobCertificate": "VJC-2025-MUM-8910",
+      "reviewSubmitted": true
+    }
+  ],
+  "reviews": [
+    {
+      "id": "rev-1",
+      "bookingId": "bk-1002",
+      "workerId": "w-1",
+      "customerName": "Kunal Singhania",
+      "customerCity": "Mumbai",
+      "date": "2025-02-12",
+      "verifiedJob": true,
+      "overallRating": 5,
+      "dimensions": {
+        "technicalQuality": 5,
+        "professionalism": 5,
+        "punctuality": 5,
+        "valueForMoney": 5,
+        "communication": 5
+      },
+      "comment": "UrbanClap sent 2 electricians earlier who could not diagnose why my high-end induction kept tripping the whole floor. Rahul diagnosed the neutral leakage within 15 minutes using a True-RMS clamp meter. Master level skills are genuinely worth every rupee."
+    },
+    {
+      "id": "rev-2",
+      "bookingId": "bk-1003",
+      "workerId": "w-1",
+      "customerName": "Ananya Deshmukh",
+      "customerCity": "Mumbai",
+      "date": "2025-01-29",
+      "verifiedJob": true,
+      "overallRating": 4.8,
+      "dimensions": {
+        "technicalQuality": 5,
+        "professionalism": 5,
+        "punctuality": 4,
+        "valueForMoney": 5,
+        "communication": 5
+      },
+      "comment": "Exceptional work replacing our old main switchboard. Provided an itemized safety report with earth resistance values. Arrived with full PPE and industrial tools."
+    },
+    {
+      "id": "rev-3",
+      "bookingId": "bk-1004",
+      "workerId": "w-2",
+      "customerName": "Vikas Rao",
+      "customerCity": "Mumbai",
+      "date": "2025-02-18",
+      "verifiedJob": true,
+      "overallRating": 4.7,
+      "dimensions": {
+        "technicalQuality": 5,
+        "professionalism": 5,
+        "punctuality": 4,
+        "valueForMoney": 4,
+        "communication": 5
+      },
+      "comment": "Suresh performed pressure leak testing and recharged R32 gas with a digital scale. The cooling returned to factory cold in 30 minutes."
+    }
+  ],
+  "verificationRequests": [
+    {
+      "id": "vr-1",
+      "workerId": "w-4",
+      "workerName": "Amit Verma",
+      "specialty": "Carpenter",
+      "requestedTier": "Expert",
+      "currentTier": "Skilled",
+      "documentType": "Advanced Carpentry Apprenticeship & 20 Client Endorsement Letters",
+      "submittedAt": "2025-02-26",
+      "status": "Pending Review",
+      "notes": "Worker completed 340+ verified jobs with 94% success rate and passed Level 3 practical test."
+    },
+    {
+      "id": "vr-2",
+      "workerId": "w-8",
+      "workerName": "Manoj Tiwari",
+      "specialty": "Electrician",
+      "requestedTier": "Skilled",
+      "currentTier": "Basic",
+      "documentType": "NCVT Wireman Certificate Draft & Experience Log",
+      "submittedAt": "2025-02-27",
+      "status": "Pending Review",
+      "notes": "Worker completed 64 jobs; requesting upgrade to Level 2 Skilled tier."
+    }
+  ]
+}

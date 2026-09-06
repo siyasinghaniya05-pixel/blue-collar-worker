@@ -1,0 +1,10 @@
+{
+  "name": "skillserve",
+  "version": "1.0.0",
+  "description": "SkillServe - Skill-Verified Service Marketplace",
+  "scripts": {
+    "server": "cd server && npm start",
+    "client": "cd client && npm run dev",
+    "build": "cd client && npm run build"
+  }
+}

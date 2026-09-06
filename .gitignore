@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+
+# Environment & secrets
+.env
+.env.local
+.env.*.local
+
+# Database / runtime data
+.data/
+data/db/
+*.log
+npm-debug.log*
+
+# Caches
+.cache/
+.vite/
+*.tsbuildinfo
+
+# MongoDB memory server binaries
+mongodb-binaries/
+.mongodb-binaries/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
