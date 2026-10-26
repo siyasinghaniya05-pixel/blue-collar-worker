@@ -1,263 +1,271 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
+import LogoutModal from './LogoutModal';
+import UserMenu from './UserMenu';
 import {
   ShieldCheck,
-  Search,
-  Sparkles,
+  Menu,
+  X,
+  LayoutDashboard,
   User,
   LogOut,
-  ChevronDown,
-  LayoutDashboard,
-  CalendarCheck,
-  Briefcase,
-  Layers,
-  Menu,
-  X
+  ArrowRight,
+  Sparkles,
+  QrCode
 } from 'lucide-react';
-import SkillBadge from './SkillBadge';
 
 export default function Navbar() {
-  const { user, workerProfile, demoLogin, logout } = useAuth();
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const { user, isAuthenticated, logout } = useAuth();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [showLogoutModal, setShowLogoutModal] = useState(false);
+  const [isLoggingOut, setIsLoggingOut] = useState(false);
+  
   const navigate = useNavigate();
+  const location = useLocation();
 
-  const handleDemoSwitch = async (role) => {
-    setDropdownOpen(false);
-    await demoLogin(role);
-    if (role === 'worker') navigate('/worker-dashboard');
-    else if (role === 'admin') navigate('/admin');
-    else navigate('/bookings');
+  const handleConfirmLogout = async () => {
+    setIsLoggingOut(true);
+    try {
+      await logout();
+      setShowLogoutModal(false);
+      setMobileMenuOpen(false);
+      navigate('/');
+    } catch (err) {
+      console.error('Logout error', err);
+    } finally {
+      setIsLoggingOut(false);
+    }
   };
 
+  const navLinks = [
+    { name: 'Home', path: '/' },
+    { name: 'How It Works', path: '/#how-it-works' },
+    { name: 'For Workers', path: '/#for-workers' },
+    { name: 'For Employers', path: '/#for-employers' },
+    { name: 'About', path: '/about' },
+  ];
+
+  // Helper for hash navigation or route navigation
+  const handleNavClick = (path) => {
+    setMobileMenuOpen(false);
+    if (path.startsWith('/#')) {
+      const elementId = path.replace('/#', '');
+      if (location.pathname === '/') {
+        const el = document.getElementById(elementId);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        navigate('/');
+        setTimeout(() => {
+          const el = document.getElementById(elementId);
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 150);
+      }
+    }
+  };
+
+  const dashboardPath = user?.role === 'admin' 
+    ? '/admin' 
+    : (user?.role === 'employer' ? '/employer-dashboard' : '/worker-dashboard');
+
   return (
-    <nav className="sticky top-0 z-40 bg-slate-950/85 backdrop-blur-xl border-b border-slate-800/80">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo & Brand */}
-          <div className="flex items-center gap-8">
+    <>
+      <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/90 shadow-xs">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16 sm:h-20">
+            
+            {/* KaushalID Logo */}
             <Link to="/" className="flex items-center gap-3 group">
-              <div className="relative flex items-center justify-center w-10 h-10 rounded-2xl bg-gradient-to-tr from-emerald-600 via-emerald-500 to-amber-400 p-0.5 shadow-lg shadow-emerald-500/20 group-hover:scale-105 transition-transform">
-                <div className="w-full h-full bg-slate-950 rounded-[14px] flex items-center justify-center">
-                  <ShieldCheck className="w-5 h-5 text-emerald-400 group-hover:text-amber-400 transition-colors" />
+              <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-emerald-600 to-teal-500 p-0.5 shadow-md shadow-emerald-500/15 group-hover:scale-105 transition-transform flex-shrink-0">
+                <div className="w-full h-full bg-white rounded-[14px] flex items-center justify-center">
+                  <ShieldCheck className="w-6 h-6 text-emerald-600 group-hover:text-teal-600 transition-colors" />
                 </div>
               </div>
               <div>
-                <div className="flex items-center gap-1.5">
-                  <span className="font-display font-extrabold text-xl text-white tracking-tight">
-                    Skill<span className="text-emerald-400">Serve</span>
+                <div className="flex items-center gap-2">
+                  <span className="font-extrabold text-xl sm:text-2xl text-slate-900 tracking-tight font-display">
+                    Kaushal<span className="text-emerald-600">ID</span>
                   </span>
-                  <span className="text-[10px] font-bold uppercase tracking-wider bg-amber-500/20 text-amber-300 px-1.5 py-0.5 rounded border border-amber-500/30">
-                    Tiered
+                  <span className="text-[10px] bg-emerald-50 text-emerald-700 font-mono font-bold px-2 py-0.5 rounded-full border border-emerald-200/80">
+                    PASSPORT
                   </span>
                 </div>
-                <span className="text-[10px] text-slate-400 hidden sm:block">
-                  Verified Skill Marketplace
-                </span>
+                <p className="text-[11px] text-slate-500 hidden sm:block tracking-wide font-medium">
+                  National Skill Identity Registry
+                </p>
               </div>
             </Link>
 
             {/* Desktop Navigation Links */}
-            <div className="hidden md:flex items-center gap-1 text-sm font-medium text-slate-300">
-              <Link
-                to="/search"
-                className="px-3.5 py-2 rounded-xl hover:text-white hover:bg-slate-900 transition-colors flex items-center gap-2"
+            <nav className="hidden md:flex items-center gap-1 lg:gap-2">
+              {navLinks.map((link) => {
+                const isHash = link.path.startsWith('/#');
+                return isHash ? (
+                  <button
+                    key={link.name}
+                    onClick={() => handleNavClick(link.path)}
+                    className="px-3.5 py-2 rounded-xl text-sm font-semibold text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition"
+                  >
+                    {link.name}
+                  </button>
+                ) : (
+                  <Link
+                    key={link.name}
+                    to={link.path}
+                    className={`px-3.5 py-2 rounded-xl text-sm font-semibold transition ${
+                      location.pathname === link.path
+                        ? 'text-emerald-700 bg-emerald-50 border border-emerald-200/80'
+                        : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                );
+              })}
+            </nav>
+
+            {/* Right Action Controls: Logged In vs Logged Out State */}
+            <div className="flex items-center gap-2.5 sm:gap-3">
+              {isAuthenticated ? (
+                /* Authenticated State: Dashboard | Profile | Logout */
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <Link
+                    to={dashboardPath}
+                    className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs sm:text-sm font-bold border border-slate-200 transition"
+                  >
+                    <LayoutDashboard className="w-4 h-4 text-emerald-600" />
+                    <span>Dashboard</span>
+                  </Link>
+
+                  <Link
+                    to="/profile"
+                    className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs sm:text-sm font-bold border border-slate-200 transition"
+                  >
+                    <User className="w-4 h-4 text-emerald-600" />
+                    <span>Profile</span>
+                  </Link>
+
+                  <button
+                    onClick={() => setShowLogoutModal(true)}
+                    className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-red-50 hover:bg-red-100 text-red-600 text-xs sm:text-sm font-bold border border-red-200 transition"
+                  >
+                    <LogOut className="w-4 h-4" />
+                    <span>Logout</span>
+                  </button>
+
+                  {/* Profile Dropdown Component */}
+                  <UserMenu onOpenLogoutModal={() => setShowLogoutModal(true)} />
+                </div>
+              ) : (
+                /* Logged Out State: Login | Get Started */
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <Link
+                    to="/login"
+                    className="px-4 py-2 rounded-xl text-slate-700 hover:text-slate-900 hover:bg-slate-100 text-xs sm:text-sm font-bold transition"
+                  >
+                    Login
+                  </Link>
+
+                  <Link
+                    to="/signup"
+                    className="px-4 sm:px-5 py-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-bold text-xs sm:text-sm shadow-md shadow-emerald-600/20 transition active:scale-95 flex items-center gap-1.5"
+                  >
+                    <Sparkles className="w-3.5 h-3.5 text-emerald-200" />
+                    <span>Get Started</span>
+                  </Link>
+                </div>
+              )}
+
+              {/* Mobile Hamburger Menu Toggle */}
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="md:hidden p-2 rounded-xl bg-slate-100 text-slate-600 hover:text-slate-900 border border-slate-200 transition"
+                aria-label="Toggle navigation menu"
               >
-                <Search className="w-4 h-4 text-emerald-400" />
-                Find Professionals
-              </Link>
-              <Link
-                to="/match"
-                className="px-3.5 py-2 rounded-xl hover:text-white hover:bg-slate-900 transition-colors flex items-center gap-2"
-              >
-                <Sparkles className="w-4 h-4 text-purple-400" />
-                Smart Match AI
-              </Link>
-              <Link
-                to="/#how-it-works"
-                className="px-3.5 py-2 rounded-xl hover:text-white hover:bg-slate-900 transition-colors"
-              >
-                Verification System
-              </Link>
+                {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              </button>
             </div>
           </div>
+        </div>
 
-          {/* Right Area: Role Actions & Quick Demo Switcher */}
-          <div className="hidden md:flex items-center gap-3">
-            {/* Quick Demo Switcher Dropdown */}
-            <div className="relative">
-              <button
-                onClick={() => setDropdownOpen(!dropdownOpen)}
-                className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-700/80 text-xs font-semibold text-slate-200 hover:border-amber-500/50 transition-all shadow-sm"
-              >
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                <span className="text-slate-400">Demo Role:</span>
-                <span className="capitalize text-amber-400">{user?.role || 'Customer'}</span>
-                <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
-              </button>
+        {/* Mobile Navigation Drawer */}
+        {mobileMenuOpen && (
+          <div className="md:hidden bg-white border-b border-slate-200 px-4 pt-3 pb-6 space-y-3 shadow-lg animate-in slide-in-from-top-2">
+            <div className="space-y-1">
+              {navLinks.map((link) => (
+                <button
+                  key={link.name}
+                  onClick={() => handleNavClick(link.path)}
+                  className="w-full text-left px-3.5 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:text-emerald-700 transition"
+                >
+                  {link.name}
+                </button>
+              ))}
+            </div>
 
-              {dropdownOpen && (
-                <div className="absolute right-0 mt-2 w-64 rounded-2xl bg-slate-900 border border-slate-700 shadow-2xl p-2 z-50 text-xs animate-in fade-in zoom-in-95 duration-150">
-                  <div className="px-3 py-2 text-[11px] font-bold text-slate-400 uppercase tracking-wider border-b border-slate-800">
-                    1-Click Switch Persona
+            <div className="pt-3 border-t border-slate-100 flex flex-col gap-2">
+              {isAuthenticated ? (
+                <>
+                  <div className="px-3.5 py-1 text-xs text-slate-500 font-medium">
+                    Signed in as <span className="font-bold text-slate-800">{user?.displayName || user?.email}</span>
                   </div>
-
-                  <button
-                    onClick={() => handleDemoSwitch('customer')}
-                    className="w-full text-left px-3 py-2.5 rounded-xl hover:bg-slate-800 flex items-center justify-between text-slate-200"
+                  <Link
+                    to={dashboardPath}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="w-full py-2.5 px-4 rounded-xl bg-emerald-50 text-emerald-800 text-center text-sm font-bold border border-emerald-200 flex items-center justify-center gap-2"
                   >
-                    <div>
-                      <div className="font-bold text-white">Priya Malhotra</div>
-                      <div className="text-slate-400 text-[11px]">Customer • Mumbai</div>
-                    </div>
-                    <span className="px-2 py-0.5 rounded bg-blue-950 text-blue-300 font-semibold text-[10px]">
-                      Customer
-                    </span>
-                  </button>
-
-                  <button
-                    onClick={() => handleDemoSwitch('worker')}
-                    className="w-full text-left px-3 py-2.5 rounded-xl hover:bg-slate-800 flex items-center justify-between text-slate-200"
+                    <LayoutDashboard className="w-4 h-4 text-emerald-600" />
+                    <span>Dashboard</span>
+                  </Link>
+                  <Link
+                    to="/profile"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="w-full py-2.5 px-4 rounded-xl bg-slate-100 text-slate-800 text-center text-sm font-bold border border-slate-200 flex items-center justify-center gap-2"
                   >
-                    <div>
-                      <div className="font-bold text-white">Rahul Sharma</div>
-                      <div className="text-slate-400 text-[11px]">Master Electrician (Score: 94)</div>
-                    </div>
-                    <span className="px-2 py-0.5 rounded bg-amber-950 text-amber-300 font-semibold text-[10px]">
-                      Master Pro
-                    </span>
-                  </button>
-
+                    <User className="w-4 h-4 text-slate-600" />
+                    <span>Profile</span>
+                  </Link>
                   <button
-                    onClick={() => handleDemoSwitch('admin')}
-                    className="w-full text-left px-3 py-2.5 rounded-xl hover:bg-slate-800 flex items-center justify-between text-slate-200"
+                    onClick={() => {
+                      setMobileMenuOpen(false);
+                      setShowLogoutModal(true);
+                    }}
+                    className="w-full py-2.5 px-4 rounded-xl bg-red-50 text-red-600 text-center text-sm font-bold border border-red-200 flex items-center justify-center gap-2"
                   >
-                    <div>
-                      <div className="font-bold text-white">Vikram Adani</div>
-                      <div className="text-slate-400 text-[11px]">National Verification Admin</div>
-                    </div>
-                    <span className="px-2 py-0.5 rounded bg-purple-950 text-purple-300 font-semibold text-[10px]">
-                      Admin
-                    </span>
+                    <LogOut className="w-4 h-4" />
+                    <span>Logout</span>
                   </button>
+                </>
+              ) : (
+                <div className="grid grid-cols-2 gap-2">
+                  <Link
+                    to="/login"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="w-full py-2.5 px-4 rounded-xl bg-slate-100 text-slate-800 text-center text-sm font-bold border border-slate-200"
+                  >
+                    Login
+                  </Link>
+                  <Link
+                    to="/signup"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="w-full py-2.5 px-4 rounded-xl bg-emerald-600 text-white text-center text-sm font-bold shadow-md shadow-emerald-600/20"
+                  >
+                    Get Started
+                  </Link>
                 </div>
               )}
             </div>
-
-            {/* Role-specific Shortcut Button */}
-            {user?.role === 'worker' ? (
-              <Link
-                to="/worker-dashboard"
-                className="px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-xs flex items-center gap-1.5 shadow-lg shadow-amber-500/20 transition-all"
-              >
-                <LayoutDashboard className="w-4 h-4" />
-                Worker Dashboard
-              </Link>
-            ) : user?.role === 'admin' ? (
-              <Link
-                to="/admin"
-                className="px-4 py-2 rounded-xl bg-gradient-to-r from-purple-600 to-purple-500 hover:from-purple-500 hover:to-purple-400 text-white font-bold text-xs flex items-center gap-1.5 shadow-lg shadow-purple-500/20 transition-all"
-              >
-                <Layers className="w-4 h-4" />
-                Admin Panel
-              </Link>
-            ) : (
-              <Link
-                to="/bookings"
-                className="px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-white font-semibold text-xs flex items-center gap-1.5 transition-all"
-              >
-                <CalendarCheck className="w-4 h-4 text-emerald-400" />
-                My Bookings
-              </Link>
-            )}
-
-            {/* User Profile avatar */}
-            <div className="flex items-center gap-2 pl-2 border-l border-slate-800">
-              <img
-                src={user?.avatar || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80'}
-                alt={user?.name}
-                className="w-8 h-8 rounded-xl object-cover border border-slate-700"
-              />
-            </div>
           </div>
+        )}
+      </header>
 
-          {/* Mobile menu hamburger */}
-          <div className="md:hidden flex items-center gap-2">
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white"
-            >
-              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile Menu Dropdown */}
-      {mobileMenuOpen && (
-        <div className="md:hidden bg-slate-900 border-b border-slate-800 px-4 py-4 space-y-3 animate-in slide-in-from-top-4">
-          <Link
-            to="/search"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block py-2 text-sm text-slate-200 font-medium"
-          >
-            Find Verified Professionals
-          </Link>
-          <Link
-            to="/match"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block py-2 text-sm text-slate-200 font-medium"
-          >
-            Smart Match AI
-          </Link>
-          <Link
-            to="/bookings"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block py-2 text-sm text-slate-200 font-medium"
-          >
-            My Bookings & Tracker
-          </Link>
-          <Link
-            to="/worker-dashboard"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block py-2 text-sm text-amber-400 font-medium"
-          >
-            Worker Dashboard & Assessments
-          </Link>
-          <Link
-            to="/admin"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block py-2 text-sm text-purple-400 font-medium"
-          >
-            Admin Verification Directorate
-          </Link>
-
-          <div className="pt-3 border-t border-slate-800 flex items-center justify-between">
-            <span className="text-xs text-slate-400">Switch Persona:</span>
-            <div className="flex gap-1.5">
-              <button
-                onClick={() => { handleDemoSwitch('customer'); setMobileMenuOpen(false); }}
-                className="px-2.5 py-1 rounded bg-slate-800 text-[11px] text-blue-300 font-semibold"
-              >
-                Customer
-              </button>
-              <button
-                onClick={() => { handleDemoSwitch('worker'); setMobileMenuOpen(false); }}
-                className="px-2.5 py-1 rounded bg-slate-800 text-[11px] text-amber-300 font-semibold"
-              >
-                Worker
-              </button>
-              <button
-                onClick={() => { handleDemoSwitch('admin'); setMobileMenuOpen(false); }}
-                className="px-2.5 py-1 rounded bg-slate-800 text-[11px] text-purple-300 font-semibold"
-              >
-                Admin
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-    </nav>
+      {/* Logout Confirmation Dialog Modal */}
+      <LogoutModal
+        isOpen={showLogoutModal}
+        onClose={() => setShowLogoutModal(false)}
+        onConfirm={handleConfirmLogout}
+        isLoggingOut={isLoggingOut}
+      />
+    </>
   );
 }

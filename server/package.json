@@ -1,12 +1,13 @@
 {
-  "name": "skillserve-server",
+  "name": "kaushalid-server",
   "version": "1.0.0",
-  "description": "SkillServe - Skill-Verified Service Marketplace Backend",
+  "description": "KaushalID - Digital Skill Passport Platform Backend",
   "main": "server.js",
   "type": "module",
   "scripts": {
     "start": "node server.js",
-    "dev": "node --watch server.js"
+    "dev": "node --watch server.js",
+    "test": "node --test tests/*.test.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",

@@ -22,36 +22,45 @@ export const CATEGORIES = [
 
 export const USERS = [
   {
-    id: 'usr-customer-1',
-    name: 'Priya Malhotra',
-    email: 'customer@skillserve.com',
-    role: 'customer',
-    avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80',
-    city: 'Mumbai',
-    phone: '+91 98201 45892',
-    address: 'A-402, Sea Crest Towers, Bandra West, Mumbai 400050',
-    createdAt: '2025-01-15'
-  },
-  {
     id: 'usr-worker-1',
-    name: 'Rahul Sharma',
-    email: 'worker@skillserve.com',
+    name: 'Rajesh Patil',
+    email: 'rajesh.patil@kaushalid.in',
+    alternateEmails: ['worker@kaushalid.in', 'worker@skillserve.com'],
+    passwordHash: '$2a$10$e8T8Q7l4mFqXq/v0eYn9G.Fm6zJp.J2y0k1z9m5l8n3q4w6r7t8u.', // demo123
     role: 'worker',
-    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80',
-    city: 'Mumbai',
-    phone: '+91 98112 34567',
+    kaushalId: 'KID-IN-MH-10248',
+    avatar: 'https://images.unsplash.com/photo-1540569014015-19a7be504e3a?w=150&auto=format&fit=crop&q=80',
+    city: 'Mumbai, Maharashtra',
+    phone: '+91 98201 44521',
     address: '14/B, Shiv Krupa Chs, Andheri East, Mumbai 400069',
     createdAt: '2024-03-10'
   },
   {
+    id: 'usr-employer-1',
+    name: 'Vikram Mehta',
+    email: 'vikram.mehta@buildcon.in',
+    alternateEmails: ['employer@kaushalid.in', 'customer@skillserve.com'],
+    passwordHash: '$2a$10$e8T8Q7l4mFqXq/v0eYn9G.Fm6zJp.J2y0k1z9m5l8n3q4w6r7t8u.', // demo123
+    role: 'employer',
+    companyName: 'L&T Infrastructure MEP Division',
+    companyId: 'EMP-IN-MH-4421',
+    avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80',
+    city: 'Mumbai, Maharashtra',
+    phone: '+91 98700 12345',
+    address: 'A-402, Sea Crest Towers, Bandra West, Mumbai 400050',
+    createdAt: '2025-01-15'
+  },
+  {
     id: 'usr-admin-1',
     name: 'Vikram Adani',
-    email: 'admin@skillserve.com',
+    email: 'admin@kaushalid.in',
+    alternateEmails: ['admin@skillserve.com'],
+    passwordHash: '$2a$10$e8T8Q7l4mFqXq/v0eYn9G.Fm6zJp.J2y0k1z9m5l8n3q4w6r7t8u.', // demo123
     role: 'admin',
     avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80',
-    city: 'Bengaluru',
+    city: 'Bengaluru, Karnataka',
     phone: '+91 98800 12345',
-    address: 'SkillServe HQ, Indiranagar 100ft Rd, Bengaluru 560038',
+    address: 'National Skill Verification Directorate, Indiranagar, Bengaluru 560038',
     createdAt: '2023-11-01'
   }
 ];
@@ -60,8 +69,9 @@ export const WORKERS = [
   {
     id: 'w-1',
     userId: 'usr-worker-1',
-    name: 'Rahul Sharma',
-    specialty: 'Master Electrician',
+    kaushalId: 'KID-IN-MH-10248',
+    name: 'Rajesh Patil',
+    specialty: 'Senior Electrical Technician',
     category: 'Electricians',
     level: 4,
     tierName: 'Master',
@@ -1011,3 +1021,346 @@ export const VERIFICATION_REQUESTS = [
     notes: 'Worker completed 64 jobs; requesting upgrade to Level 2 Skilled tier.'
   }
 ];
+
+export const CREDENTIALS = [
+  {
+    id: 'CRED-IN-MH-10248',
+    credentialId: 'KID-IN-MH-10248',
+    passportId: 'KID-IN-MH-10248',
+    workerId: 'w-1',
+    workerName: 'Rajesh Patil',
+    trade: 'Senior Electrical Technician',
+    occupation: 'Electrician',
+    city: 'Mumbai, Maharashtra',
+    status: 'VERIFIED',
+    tierLevel: 4,
+    tierName: 'Level 4 - Master Technician',
+    badge: 'MASTER VERIFIED',
+    skillScore: 94,
+    experienceYears: 8,
+    issueDate: '2026-01-14',
+    validUntil: '2028-01-14',
+    issuingAuthority: 'National Skill Verification Directorate / NSDC Partner',
+    authorizedAssessor: 'Anand Verma (Lead Technical Auditor)',
+    verifiedCompetencies: [
+      { name: 'Three-Phase Wiring & Distribution', score: 96, standard: 'NSQF Level 5', verified: true },
+      { name: 'MCB & Substation Installation', score: 92, standard: 'NSQF Level 5', verified: true },
+      { name: 'Industrial Earthing & Safety', score: 94, standard: 'NSQF Level 5', verified: true },
+      { name: 'Multimeter & Fault Diagnostics', score: 98, standard: 'NSQF Level 5', verified: true }
+    ],
+    certifications: [
+      {
+        id: 'CERT-NSDC-2024-098',
+        name: 'National Skills Qualification Framework (NSQF Level 5)',
+        issuer: 'Skill India / NSDC',
+        issueDate: 'Oct 2024',
+        verified: true
+      },
+      {
+        id: 'CERT-PWD-MH-8831',
+        name: 'PWD Electrical Contractor Class-A Wireman License',
+        issuer: 'Govt of Maharashtra',
+        issueDate: 'Mar 2023',
+        verified: true
+      }
+    ],
+    workHistory: [
+      {
+        project: 'Metro Line 3 Commercial Substation Setup',
+        client: 'L&T Construction MEP Division',
+        period: '2024 - 2025',
+        verified: true,
+        scope: '3-phase backup busbar wiring and emergency generator load testing.'
+      },
+      {
+        project: 'Godrej Platinum High-Rise Tower Wiring',
+        client: 'Godrej Properties',
+        period: '2023 - 2024',
+        verified: true,
+        scope: 'Concealed distribution boards and automated fire alarm interlocks.'
+      }
+    ],
+    digitalSignatureHash: 'sha256-a98f12cb84910e527dbf01837ac65e1289b4f02',
+    revocationReason: null,
+    revokedAt: null
+  },
+  {
+    id: 'CRED-IN-DL-4091',
+    credentialId: 'KID-IN-DL-4091',
+    passportId: 'KID-IN-DL-4091',
+    workerId: 'w-2',
+    workerName: 'Amit Kumar',
+    trade: 'HVAC & Commercial Chiller Specialist',
+    occupation: 'AC Technician',
+    city: 'Delhi NCR',
+    status: 'VERIFIED',
+    tierLevel: 3,
+    tierName: 'Level 3 - Expert Specialist',
+    badge: 'EXPERT VERIFIED',
+    skillScore: 92,
+    experienceYears: 8,
+    issueDate: '2025-11-20',
+    validUntil: '2027-11-20',
+    issuingAuthority: 'National Skill Verification Directorate',
+    authorizedAssessor: 'R. K. Srivastava (Chief Mechanical Assessor)',
+    verifiedCompetencies: [
+      { name: 'VRV / VRF Diagnostics & Commissioning', score: 94, standard: 'NSQF Level 4', verified: true },
+      { name: 'Chiller Compressor Overhaul', score: 91, standard: 'NSQF Level 4', verified: true },
+      { name: 'R-32 Refrigerant Safe Recovery & Charging', score: 95, standard: 'NSQF Level 4', verified: true }
+    ],
+    certifications: [
+      {
+        id: 'CERT-HVAC-2023-41',
+        name: 'Commercial Refrigeration & Environmental Safety',
+        issuer: 'National Council for Vocational Training',
+        issueDate: 'Jul 2023',
+        verified: true
+      }
+    ],
+    digitalSignatureHash: 'sha256-b78c93de45fa810239c814b72648dfc208479e0',
+    revocationReason: null,
+    revokedAt: null
+  },
+  {
+    id: 'CRED-IN-KA-8832',
+    credentialId: 'KID-IN-KA-8832',
+    passportId: 'KID-IN-KA-8832',
+    workerId: 'w-3',
+    workerName: 'Suresh Gowda',
+    trade: 'Master High-Pressure Plumber',
+    occupation: 'Plumber',
+    city: 'Bengaluru, Karnataka',
+    status: 'VERIFIED',
+    tierLevel: 2,
+    tierName: 'Level 2 - Certified Technician',
+    badge: 'SKILLED VERIFIED',
+    skillScore: 89,
+    experienceYears: 5,
+    issueDate: '2025-08-10',
+    validUntil: '2027-08-10',
+    issuingAuthority: 'National Skill Verification Directorate',
+    authorizedAssessor: 'M. S. Murthy (Sanitary & Hydro Inspector)',
+    verifiedCompetencies: [
+      { name: 'Hydraulic Multi-Storey Pressure Testing', score: 91, standard: 'NSQF Level 3', verified: true },
+      { name: 'CPVC Industrial Fitting & Solvent Welds', score: 88, standard: 'NSQF Level 3', verified: true }
+    ],
+    certifications: [],
+    digitalSignatureHash: 'sha256-c34d82ef9102374b810934c56810f92b740192a',
+    revocationReason: null,
+    revokedAt: null
+  },
+  {
+    id: 'CRED-IN-MH-6612',
+    credentialId: 'KID-IN-MH-6612',
+    passportId: 'KID-IN-MH-6612',
+    workerId: 'w-4',
+    workerName: 'Imran Ansari',
+    trade: 'Certified Structural Arc & TIG Welder',
+    occupation: 'Welder',
+    city: 'Pune, Maharashtra',
+    status: 'UNDER_REVIEW',
+    tierLevel: 3,
+    tierName: 'Level 3 - Under Review',
+    badge: 'UNDER REVIEW',
+    skillScore: 94,
+    experienceYears: 7,
+    issueDate: '2026-02-15',
+    validUntil: '2028-02-15',
+    issuingAuthority: 'National Skill Verification Directorate',
+    authorizedAssessor: 'Assessor Review Pending',
+    verifiedCompetencies: [
+      { name: 'TIG Stainless Steel 6G Position', score: 94, standard: 'ISO 9606 Aligned', verified: false },
+      { name: 'Pressure Vessel Joint Integrity', score: 92, standard: 'ASME Sec IX Aligned', verified: false }
+    ],
+    certifications: [],
+    digitalSignatureHash: 'sha256-pending-review-6612',
+    revocationReason: null,
+    revokedAt: null
+  },
+  {
+    id: 'CRED-REVOKED-001',
+    credentialId: 'KID-REVOKED-001',
+    passportId: 'KID-REVOKED-001',
+    workerId: 'w-revoked',
+    workerName: 'Alok Mishra',
+    trade: 'Licensed Wireman (Revoked)',
+    occupation: 'Electrician',
+    city: 'Kanpur, Uttar Pradesh',
+    status: 'REVOKED',
+    tierLevel: 0,
+    tierName: 'Revoked',
+    badge: 'CREDENTIAL REVOKED',
+    skillScore: 0,
+    experienceYears: 4,
+    issueDate: '2024-05-10',
+    validUntil: '2026-05-10',
+    issuingAuthority: 'National Skill Verification Directorate',
+    authorizedAssessor: 'Audit Enforcement Unit',
+    verifiedCompetencies: [],
+    certifications: [],
+    digitalSignatureHash: 'sha256-revoked-0001',
+    revocationReason: 'Biometric field audit failed: forged contractor license submission & repeated electrical code violations.',
+    revokedAt: '2026-01-05T09:30:00Z'
+  },
+  {
+    id: 'CRED-EXPIRED-001',
+    credentialId: 'KID-EXPIRED-001',
+    passportId: 'KID-EXPIRED-001',
+    workerId: 'w-expired',
+    workerName: 'Dinesh Rawat',
+    trade: 'Commercial Rooftop Solar Technician',
+    occupation: 'Solar Technician',
+    city: 'Jaipur, Rajasthan',
+    status: 'EXPIRED',
+    tierLevel: 2,
+    tierName: 'Expired Credential',
+    badge: 'CREDENTIAL EXPIRED',
+    skillScore: 78,
+    experienceYears: 3,
+    issueDate: '2023-09-01',
+    validUntil: '2025-09-01',
+    issuingAuthority: 'National Skill Verification Directorate',
+    authorizedAssessor: 'Renewable Energy Skill Council',
+    verifiedCompetencies: [
+      { name: 'PV Array Tilt & String Wiring', score: 80, standard: 'NSQF Level 3', verified: true }
+    ],
+    certifications: [],
+    digitalSignatureHash: 'sha256-expired-0001',
+    revocationReason: null,
+    revokedAt: null
+  }
+];
+
+export const ASSESSMENT_REQUESTS = [
+  {
+    id: 'AR-2026-101',
+    workerId: 'w-1',
+    kaushalId: 'KID-IN-MH-10248',
+    workerName: 'Rajesh Patil',
+    trade: 'Electrician',
+    skillArea: 'Three-Phase Wiring & Diagnostic Troubleshooting',
+    status: 'Approved',
+    feePaid: 499,
+    submittedAt: '2026-01-10T09:15:00Z',
+    evidenceDescription: 'Field bench test photos and digital multimeter log of 3-phase load balance across 63A distribution board.',
+    assessorNotes: 'Full compliance with Indian Electricity Rules 1956. Correct tripping curve on 30mA RCD.',
+    score: 96,
+    reviewedBy: 'usr-admin-1',
+    reviewedAt: '2026-01-14T11:00:00Z',
+    rejectionReason: null
+  },
+  {
+    id: 'AR-2026-102',
+    workerId: 'w-4',
+    kaushalId: 'KID-IN-MH-6612',
+    workerName: 'Imran Ansari',
+    trade: 'Welder',
+    skillArea: 'TIG Stainless Steel 6G Pipe Weld',
+    status: 'Pending Review',
+    feePaid: 499,
+    submittedAt: '2026-02-25T14:30:00Z',
+    evidenceDescription: 'Submitted radiographic test report and coupon weld photograph from L&T shop floor.',
+    assessorNotes: 'Assigned to metallurgy inspection auditor for coupon verification.',
+    score: null,
+    reviewedBy: null,
+    reviewedAt: null,
+    rejectionReason: null
+  },
+  {
+    id: 'AR-2026-103',
+    workerId: 'w-3',
+    kaushalId: 'KID-IN-KA-8832',
+    workerName: 'Suresh Gowda',
+    trade: 'Plumber',
+    skillArea: 'Hydraulic Multi-Storey Pressure Testing',
+    status: 'Approved',
+    feePaid: 499,
+    submittedAt: '2025-08-01T10:00:00Z',
+    evidenceDescription: 'Pressure gauge test holding 10 bar for 4 hours without leak.',
+    assessorNotes: 'Verified calibration certificates for pressure gauge and hydrostatic pump.',
+    score: 89,
+    reviewedBy: 'usr-admin-1',
+    reviewedAt: '2025-08-10T15:00:00Z',
+    rejectionReason: null
+  }
+];
+
+export const EMPLOYER_PROFILES = [
+  {
+    id: 'emp-1',
+    userId: 'usr-employer-1',
+    companyName: 'L&T Infrastructure MEP Division',
+    companyId: 'EMP-IN-MH-4421',
+    industry: 'Commercial Real Estate & MEP',
+    city: 'Mumbai, Maharashtra',
+    savedWorkers: ['KID-IN-MH-10248', 'KID-IN-DL-4091'],
+    subscription: {
+      status: 'Active',
+      plan: 'Enterprise Monthly',
+      price: 999,
+      validUntil: '2027-12-31',
+      verificationCredits: 50
+    },
+    verificationHistory: [
+      {
+        credentialId: 'KID-IN-MH-10248',
+        workerName: 'Rajesh Patil',
+        status: 'VERIFIED',
+        verifiedAt: '2026-02-18T10:20:00Z'
+      },
+      {
+        credentialId: 'KID-IN-DL-4091',
+        workerName: 'Amit Kumar',
+        status: 'VERIFIED',
+        verifiedAt: '2026-02-20T16:45:00Z'
+      }
+    ]
+  }
+];
+
+export const AUDIT_LOGS = [
+  {
+    id: 'LOG-001',
+    actorId: 'usr-admin-1',
+    actorName: 'Vikram Adani',
+    actorRole: 'admin',
+    action: 'CREDENTIAL_ISSUED',
+    targetEntity: 'credentials',
+    targetId: 'KID-IN-MH-10248',
+    details: 'Issued Level 4 Master Electrician Credential following practical benchmark pass.',
+    timestamp: '2026-01-14T11:00:00Z'
+  },
+  {
+    id: 'LOG-002',
+    actorId: 'usr-admin-1',
+    actorName: 'Vikram Adani',
+    actorRole: 'admin',
+    action: 'CREDENTIAL_REVOKED',
+    targetEntity: 'credentials',
+    targetId: 'KID-REVOKED-001',
+    details: 'Revoked credential due to fraudulent license detection during random biometric audit.',
+    timestamp: '2026-01-05T09:30:00Z'
+  },
+  {
+    id: 'LOG-003',
+    actorId: 'usr-admin-1',
+    actorName: 'Vikram Adani',
+    actorRole: 'admin',
+    action: 'ASSESSMENT_APPROVED',
+    targetEntity: 'assessmentRequests',
+    targetId: 'AR-2026-101',
+    details: 'Approved practical assessment for Rajesh Patil with score 96.',
+    timestamp: '2026-01-14T10:55:00Z'
+  }
+];
+
+export const PLATFORM_SETTINGS = {
+  assessmentFee: 499,
+  employerMonthlySubscription: 999,
+  currency: 'INR',
+  currencySymbol: '₹',
+  platformName: 'KaushalID',
+  tagline: 'Prove Your Skills. Build Your Identity. Earn Better.',
+  verificationValidityYears: 2
+};
+

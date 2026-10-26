@@ -1,142 +1,147 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import api from '../services/api';
 
 const AuthContext = createContext(null);
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
-  const [workerProfile, setWorkerProfile] = useState(null);
-  const [token, setToken] = useState(localStorage.getItem('skillserve_token') || null);
   const [loading, setLoading] = useState(true);
+  const [authError, setAuthError] = useState(null);
 
-  // Initialize from storage or default to demo customer
+  // Initialize and verify session with backend
   useEffect(() => {
-    async function initAuth() {
-      const savedToken = localStorage.getItem('skillserve_token');
-      if (savedToken) {
-        try {
-          const res = await fetch('/api/auth/me', {
-            headers: { Authorization: `Bearer ${savedToken}` }
-          });
-          if (res.ok) {
-            const data = await res.json();
-            setUser(data.user);
-            setWorkerProfile(data.workerProfile);
-            setLoading(false);
-            return;
-          }
-        } catch (err) {
-          console.warn('Failed to restore session from token', err);
-        }
+    let isMounted = true;
+
+    async function verifySession() {
+      const token = localStorage.getItem('kaushalid_jwt_token');
+      if (!token) {
+        if (isMounted) setLoading(false);
+        return;
       }
-      
-      // Default to demo customer on first visit
-      await demoLogin('customer');
-      setLoading(false);
+
+      try {
+        const data = await api.auth.getMe();
+        if (isMounted) {
+          setUser({ ...data.user, profile: data.profile });
+        }
+      } catch (err) {
+        console.warn('Session restoration failed, clearing token:', err.message);
+        localStorage.removeItem('kaushalid_jwt_token');
+        if (isMounted) setUser(null);
+      } finally {
+        if (isMounted) setLoading(false);
+      }
     }
 
-    initAuth();
+    verifySession();
+    return () => { isMounted = false; };
   }, []);
 
-  const demoLogin = async (role = 'customer') => {
+  // Standard Email / Password Login
+  const login = async (email, password) => {
+    setAuthError(null);
     try {
-      const res = await fetch('/api/auth/demo-login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ role })
+      const data = await api.auth.login(email, password);
+      localStorage.setItem('kaushalid_jwt_token', data.token);
+      const activeUser = { ...data.user, profile: data.profile };
+      setUser(activeUser);
+      return { success: true, user: activeUser };
+    } catch (err) {
+      setAuthError(err.message);
+      return { success: false, error: err.message };
+    }
+  };
+
+  // Google Login Simulation
+  const loginWithGoogle = async (role = 'worker') => {
+    return demoLogin(role);
+  };
+
+  // Registration
+  const signup = async ({ fullName, name, email, password, role = 'worker', city, trade, companyName }) => {
+    setAuthError(null);
+    try {
+      const data = await api.auth.signup({
+        name: fullName || name,
+        email,
+        password,
+        role,
+        city,
+        trade,
+        companyName
       });
-      const data = await res.json();
-      if (res.ok) {
-        setUser(data.user);
-        setWorkerProfile(data.workerProfile);
-        setToken(data.token);
-        localStorage.setItem('skillserve_token', data.token);
-        return { success: true, user: data.user };
-      } else {
-        return { success: false, error: data.error };
-      }
+      localStorage.setItem('kaushalid_jwt_token', data.token);
+      const activeUser = { ...data.user, profile: data.profile };
+      setUser(activeUser);
+      return { success: true, user: activeUser };
+    } catch (err) {
+      setAuthError(err.message);
+      return { success: false, error: err.message };
+    }
+  };
+
+  // Fast 1-Click Demo Persona Login
+  const demoLogin = async (role = 'worker') => {
+    setAuthError(null);
+    try {
+      const data = await api.auth.demoLogin(role);
+      localStorage.setItem('kaushalid_jwt_token', data.token);
+      const activeUser = { ...data.user, profile: data.profile };
+      setUser(activeUser);
+      return { success: true, user: activeUser };
+    } catch (err) {
+      setAuthError(err.message);
+      return { success: false, error: err.message };
+    }
+  };
+
+  // Profile Update
+  const updateProfile = async (updates) => {
+    try {
+      const data = await api.auth.updateProfile(updates);
+      const updatedUser = { ...data.user, profile: data.profile };
+      setUser(updatedUser);
+      return { success: true, user: updatedUser };
     } catch (err) {
       return { success: false, error: err.message };
     }
   };
 
-  const login = async (email) => {
-    try {
-      const res = await fetch('/api/auth/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email })
-      });
-      const data = await res.json();
-      if (res.ok) {
-        setUser(data.user);
-        setWorkerProfile(data.workerProfile);
-        setToken(data.token);
-        localStorage.setItem('skillserve_token', data.token);
-        return { success: true, user: data.user };
-      } else {
-        return { success: false, error: data.error };
-      }
-    } catch (err) {
-      return { success: false, error: err.message };
-    }
-  };
-
-  const register = async (userData) => {
-    try {
-      const res = await fetch('/api/auth/register', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(userData)
-      });
-      const data = await res.json();
-      if (res.ok) {
-        setUser(data.user);
-        setWorkerProfile(data.workerProfile);
-        setToken(data.token);
-        localStorage.setItem('skillserve_token', data.token);
-        return { success: true, user: data.user };
-      } else {
-        return { success: false, error: data.error };
-      }
-    } catch (err) {
-      return { success: false, error: err.message };
-    }
-  };
-
-  const logout = () => {
+  // Logout
+  const logout = async () => {
+    localStorage.removeItem('kaushalid_jwt_token');
     setUser(null);
-    setWorkerProfile(null);
-    setToken(null);
-    localStorage.removeItem('skillserve_token');
+    setAuthError(null);
+    return { success: true };
   };
 
-  const refreshWorkerProfile = async (workerId) => {
-    try {
-      const res = await fetch(`/api/workers/${workerId || workerProfile?.id || 'w-1'}`);
-      if (res.ok) {
-        const data = await res.json();
-        setWorkerProfile(data);
-      }
-    } catch (err) {
-      console.error('Failed to refresh worker profile', err);
-    }
+  const value = {
+    user,
+    userProfile: user,
+    userType: user?.role || null,
+    isAuthenticated: Boolean(user),
+    loading,
+    authError,
+    setAuthError,
+    login,
+    signup,
+    demoLogin,
+    loginWithGoogle,
+    updateProfile,
+    logout
   };
 
   return (
-    <AuthContext.Provider value={{
-      user,
-      workerProfile,
-      token,
-      loading,
-      login,
-      demoLogin,
-      register,
-      logout,
-      refreshWorkerProfile
-    }}>
+    <AuthContext.Provider value={value}>
       {children}
     </AuthContext.Provider>
   );
 }
 
-export const useAuth = () => useContext(AuthContext);
+export const useAuth = () => {
+  const context = useContext(AuthContext);
+  if (!context) {
+    throw new Error('useAuth must be used within an AuthProvider');
+  }
+  return context;
+};

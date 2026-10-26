@@ -1,10 +1,12 @@
 {
-  "name": "skillserve",
+  "name": "kaushalid",
   "version": "1.0.0",
-  "description": "SkillServe - Skill-Verified Service Marketplace",
+  "description": "KaushalID - Digital Skill Passport & Verification Platform for India's Skilled Workforce",
   "scripts": {
+    "build": "cd client && npm install && npm run build",
+    "start": "cd server && npm start",
     "server": "cd server && npm start",
     "client": "cd client && npm run dev",
-    "build": "cd client && npm run build"
+    "test": "cd server && npm test"
   }
 }
