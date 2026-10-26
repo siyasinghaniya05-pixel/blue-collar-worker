@@ -95,10 +95,11 @@ app.use((err, req, res, next) => {
 // Start listening (only when not in test runner)
 const isTestMode = process.env.NODE_ENV === 'test' || process.argv.some(arg => String(arg).includes('test'));
 if (!isTestMode) {
-  const server = app.listen(PORT, () => {
+  const HOST = process.env.HOST || '0.0.0.0';
+  const server = app.listen(PORT, HOST, () => {
     console.log(`=======================================================`);
-    console.log(` KaushalID Backend running at http://localhost:${PORT}`);
-    console.log(` Health check: http://localhost:${PORT}/api/health`);
+    console.log(` KaushalID Backend running at http://${HOST}:${PORT}`);
+    console.log(` Health check: http://${HOST}:${PORT}/api/health`);
     console.log(`=======================================================`);
   });
 }
